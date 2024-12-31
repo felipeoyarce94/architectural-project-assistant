@@ -5,9 +5,14 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "fastembed-gpu>=0.5.0",
+    "fastembed>=0.5.0",
     "langchain-community>=0.3.13",
+    "langchain-huggingface>=0.1.2",
     "langchain-openai>=0.2.14",
+    "langchain-qdrant>=0.2.0",
     "openai>=1.58.1",
     "pypdf>=5.1.0",
+    "qdrant-client>=1.12.2",
     "streamlit>=1.41.1",
 ]
