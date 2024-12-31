@@ -12,8 +12,7 @@ logging.basicConfig(
 )
 
 class Extractor:
-    def __init__(self, file_path: str, prompt_path: str):
-        self.file_path = file_path
+    def __init__(self, prompt_path: str):
         self.prompt_path = prompt_path
         
         try:
@@ -33,17 +32,17 @@ class Extractor:
             logging.error(f"Error reading prompt file: {e}")
             raise
 
-    def _load_pdf(self) -> list[Document]:
+    def _load_pdf(self, file_path: str) -> list[Document]:
         """
         Loads the PDF file and returns a list of documents.
         """
         try:
-            loader = PyPDFLoader(file_path=self.file_path)
+            loader = PyPDFLoader(file_path=file_path)
             documents: list[Document] = loader.load()
-            logging.info(f"Loaded {len(documents)} documents from {self.file_path}")
+            logging.info(f"Loaded {len(documents)} documents from {file_path}")
             return documents
         except Exception as e:
-            logging.error(f"Failed to load PDF {self.file_path}: {e}")
+            logging.error(f"Failed to load PDF {file_path}: {e}")
             raise
 
     def extract_items(self, docs: list[Document]) -> list[Item]:
