@@ -5,15 +5,19 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.runnable import RunnablePassthrough, RunnableSerializable
 import logging
+from src.settings import DEFAULT_MODEL
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 class Extractor:
-    def __init__(self, file_path: str, prompt_path: str, model: str):
+    def __init__(self, file_path: str, prompt_path: str):
         self.file_path = file_path
         self.prompt_path = prompt_path
-        self.model = model
         
         try:
-            self.gpt_model = ChatOpenAI(model=self.model)
+            self.gpt_model = ChatOpenAI(model=DEFAULT_MODEL)
         except Exception as e:
             logging.error(f"Failed to initialize ChatOpenAI: {e}")
             raise
