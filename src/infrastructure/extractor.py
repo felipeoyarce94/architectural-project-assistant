@@ -12,6 +12,18 @@ logging.basicConfig(
 )
 
 class Extractor:
+    """
+    This class is used to extract the Items from a PDF document using a prompt.
+    
+    It uses the ChatOpenAI model to extract the Items from the PDF document.
+    
+    
+    Args:
+        prompt_path (str): The path to the prompt file.
+    
+    Returns:
+        list[Item]: The list of extracted items.
+    """
     def __init__(self, prompt_path: str):
         self.prompt_path = prompt_path
         
@@ -35,6 +47,12 @@ class Extractor:
     def _load_pdf(self, file_path: str) -> list[Document]:
         """
         Loads the PDF file and returns a list of documents.
+        
+        Args:
+            file_path (str): The path to the PDF file.
+            
+        Returns:
+            list[Document]: The list of documents.
         """
         try:
             loader = PyPDFLoader(file_path=file_path)
