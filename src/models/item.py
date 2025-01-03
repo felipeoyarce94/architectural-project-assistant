@@ -6,6 +6,7 @@ class Item(BaseModel):
     is_recommended: bool = Field(description="If the item is recommended")
     brand: str = Field(description="Brand of the item")
     specifications: str = Field(description="A brief description of the specifications of the item")
+    location: str = Field(description="Location where the item should be located")
     length: float = Field(
         description="Length of the item in meters",
         default=0.0

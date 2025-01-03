@@ -14,4 +14,7 @@ and can also be named as dimensions, size, etc. where the first value is the len
 
 You will extract all the data related to each item and return it in a structured format.
 
+Every Item can have a location where it's going to be installed, this location can be a room, a floor, a zone, etc. 
+
+
 Context: {context}
