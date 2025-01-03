@@ -9,5 +9,11 @@ wheels/
 # Virtual environments
 .venv
 
+# Output
+output/
+
+# Environment variables
+.env
+
 # Streamlit
 .streamlit/
